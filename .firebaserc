@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "diary-664fe": {
+      "hosting": {
+        "diary-project": [
+          "diary-664fe"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "diary-664fe"
+  }
+}

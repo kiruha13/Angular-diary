@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row mt-5">
+    <div class="col"></div>
+    <div class="col-4">
+      <div class="card shadow">
+        <div class="card-body">
+          <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+            <div class="mb-3">
+              <h4 class="text-danger text-muted">Add your note</h4>
+              <label for="inputName" class="form-label">Label</label>
+              <input type="text" class="form-control" id="inputName" formControlName="name">
+              <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched" class="text-danger">
+                Name is required.
+              </div>
+            </div>
+            <div class="mb-3">
+              <div id="editorjs" #editor></div>
+              <div *ngIf="myForm.invalid" class="text-danger">
+                Please fill in all the required fields.
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+          <div style="margin-top: 10px;">
+            <button type="submit" class="btn btn-primary" (click)="redirtodash()">Go to dashboard!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

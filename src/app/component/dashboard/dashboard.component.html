@@ -1,0 +1,24 @@
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="text-danger text-muted">Your notes!</h4>
+        <div>
+          <button type="button" class="btn btn-warning mx-2" (click)="adding()">Add note</button>
+          <button type="button" class="btn btn-warning mx-2" (click)="logoutfunc()">Logout</button>
+        </div>
+      </div>
+      <div *ngFor="let post of posts" class="card mb-3">
+        <div class="col">
+          <button type="button" class="btn btn-warning mx-2 my-2" (click)="deletePost(post.id)">Delete</button>
+          <button class="btn btn-warning mx-2 my-2" [routerLink]="['/edit-post', post.id]">Edit</button>
+        </div>
+        <div class="card-body">
+          <p>{{ DateConvert(post.text.time) }}</p>
+          <h5 class="card-title">{{ post.name }}</h5>
+          <div [innerHTML]="parseEditorJS(post.text)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

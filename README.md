@@ -1,6 +1,6 @@
 # Angular-diary
 
-Welcome to **My Angular App**! This is a simple web application built with Angular that allows users to create, view, edit, and delete notes. The app uses Firebase for authentication and Firestore for data storage.
+This is a simple web application built with Angular that allows users to create, view, edit, and delete notes. The app uses Firebase for authentication and Firestore for data storage.
 
 ## Features
 

@@ -12,7 +12,6 @@ import SimpleImage from "@editorjs/simple-image";
 // @ts-ignore
 import Marker from '@editorjs/marker';
 // @ts-ignore
-import InlineCode from '@editorjs/inline-code';
 
 @Component({
   selector: 'app-edit-post',
@@ -77,8 +76,7 @@ export class EditPostComponent {
             header: Header,
             list: List,
             image: SimpleImage,
-            marker: Marker,
-            inlineCode: InlineCode
+            marker: Marker
             // Add other plugins as needed
           }
         });

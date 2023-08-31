@@ -13,10 +13,7 @@ import SimpleImage from "@editorjs/simple-image";
 import Marker from '@editorjs/marker';
 // @ts-ignore
 import InlineCode from '@editorjs/inline-code';
-import { ToastrService } from 'ngx-toastr';
-
-
-
+import {ToastrService} from "ngx-toastr";
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
@@ -27,7 +24,7 @@ export class AddPostComponent implements AfterViewInit {
   editor: EditorJS | undefined;
   myForm: FormGroup;
 
-  constructor(private toastr: ToastrService, private formBuilder: FormBuilder, private firestore: AngularFirestore, private fireauth: AngularFireAuth, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private firestore: AngularFirestore, private fireauth: AngularFireAuth, private router: Router, private toastr: ToastrService,) {
     this.myForm = this.formBuilder.group({
       name: ['', Validators.required]
     });
@@ -51,17 +48,14 @@ export class AddPostComponent implements AfterViewInit {
     if (this.myForm.invalid || this.myForm.value.text =='') {
       return;
     }
-
     try {
       // Get the current user's UID
       const currentUser = await this.fireauth.currentUser;
       const author_uid = currentUser ? currentUser.uid : 'unknown';
-
       // Get form data and add the user's UID
       const formData = this.myForm.value;
       formData.author_id = author_uid;
       formData.text = await this.editor?.save() as OutputData;
-
       // Create a new document in the "posts" collection in Firestore
       await this.firestore.collection('posts').add(formData);
       this.toastr.success('Data added successfully!', 'Success');

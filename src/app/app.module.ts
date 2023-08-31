@@ -17,6 +17,7 @@ import { VerifyEmailComponent } from './component/verify-email/verify-email.comp
 import { AddPostComponent } from './component/add-post/add-post.component';
 import { EditPostComponent } from './component/edit-post/edit-post.component';
 import {AuthGuard} from "./shared/auth.guard";
+
 import {ToastrModule} from "ngx-toastr";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,14 +39,13 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-left', // Устанавливаем позицию уведомлений слева сверху
       preventDuplicates: true, // Предотвращаем дублирование уведомлений
-      closeButton: true, // Показываем кнопку закрытия уведомления
-      progressBar: true,
-    }),
-    BrowserAnimationsModule,
-    NoopAnimationsModule
+      closeButton: true // Показываем кнопку закрытия уведомления
+    })
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
